@@ -1,0 +1,76 @@
+version: 2
+project_name: kploy
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: kploy
+    main: .
+    binary: kploy
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ignore:
+      - goos: windows
+        goarch: arm64
+    ldflags:
+      - -s -w -X github.com/bitcomplete/kploy-cli/cmd.Version={{.Version}}
+
+archives:
+  - id: kploy
+    formats: [tar.gz]
+    name_template: >-
+      {{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+    files:
+      - README.md
+      - LICENSE*
+
+checksum:
+  name_template: checksums.txt
+
+snapshot:
+  version_template: "{{ incpatch .Version }}-next"
+
+changelog:
+  use: github
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore:"
+
+release:
+  github:
+    owner: bitcomplete
+    name: kploy-cli
+  prerelease: auto
+
+brews:
+  - name: kploy
+    repository:
+      owner: bitcomplete
+      name: homebrew-tap
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+    homepage: https://github.com/bitcomplete/kploy-cli
+    description: CLI for managing Kploy environments
+    license: MIT
+    commit_author:
+      name: kploy-release-bot
+      email: noreply@bitcomplete.io
+    directory: Formula
+    install: |
+      bin.install "kploy"
+    test: |
+      assert_match "kploy", shell_output("#{bin}/kploy --help")
