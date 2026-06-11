@@ -70,25 +70,25 @@ environments are enabled, an example PR preview env.`,
 				})
 			}
 
-			fmt.Fprintln(out, "OK")
-			fmt.Fprintln(out)
-			fmt.Fprintln(out, "Sample hostnames:")
+			_, _ = fmt.Fprintln(out, "OK")
+			_, _ = fmt.Fprintln(out)
+			_, _ = fmt.Fprintln(out, "Sample hostnames:")
 			tw := tabwriter.NewWriter(out, 0, 0, 2, ' ', 0)
-			fmt.Fprintln(tw, "ENV\tHOSTNAME")
+			_, _ = fmt.Fprintln(tw, "ENV\tHOSTNAME")
 			for _, env := range envs {
-				fmt.Fprintf(tw, "%s\t%s\n", env.name, hostnames[env.name])
+				_, _ = fmt.Fprintf(tw, "%s\t%s\n", env.name, hostnames[env.name])
 			}
 			if err := tw.Flush(); err != nil {
 				return err
 			}
 
 			if len(ingress) > 0 {
-				fmt.Fprintln(out)
-				fmt.Fprintln(out, "Example preview env (PR #1):")
+				_, _ = fmt.Fprintln(out)
+				_, _ = fmt.Fprintln(out, "Example preview env (PR #1):")
 				tw2 := tabwriter.NewWriter(out, 0, 0, 2, ' ', 0)
-				fmt.Fprintln(tw2, "HOSTNAME\tSERVICE\tPORT")
+				_, _ = fmt.Fprintln(tw2, "HOSTNAME\tSERVICE\tPORT")
 				for _, ing := range ingress {
-					fmt.Fprintf(tw2, "%s\t%s\t%d\n", ing.Hostname, ing.ServiceName, ing.ServicePort)
+					_, _ = fmt.Fprintf(tw2, "%s\t%s\t%d\n", ing.Hostname, ing.ServiceName, ing.ServicePort)
 				}
 				if err := tw2.Flush(); err != nil {
 					return err
