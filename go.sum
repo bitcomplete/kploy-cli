@@ -1,6 +1,10 @@
 github.com/RaveNoX/go-jsoncommentstrip v1.0.0/go.mod h1:78ihd09MekBnJnxpICcwzCMzGrKSKYe4AqU6PDYYpjk=
 github.com/apapsch/go-jsonmerge/v2 v2.0.0 h1:axGnT1gRIfimI7gJifB699GoE/oq+F2MU7Dml6nw9rQ=
 github.com/apapsch/go-jsonmerge/v2 v2.0.0/go.mod h1:lvDnEdqiQrp0O42VQGgmlKpxL1AP2+08jFMw88y4klk=
+github.com/bitcomplete/kployconfig v0.1.0 h1:WEMGMgVfLyg9Hift9vMhEXwNqcoJbbKcnvn/UGb8GMA=
+github.com/bitcomplete/kployconfig v0.1.0/go.mod h1:qyAG3qodAW45q7CXYtLe3oBcB5DVL1Q2YtdvJw01QUs=
+github.com/bitcomplete/kployconfig v0.1.1 h1:3eMolFvB7Jn8/NFdfIatxVwEflvLjJbKxDe+BPCnvfY=
+github.com/bitcomplete/kployconfig v0.1.1/go.mod h1:qyAG3qodAW45q7CXYtLe3oBcB5DVL1Q2YtdvJw01QUs=
 github.com/bmatcuk/doublestar v1.1.1/go.mod h1:UD6OnuiIn0yFxxA2le/rnRU1G4RaI4UvFv1sNto9p6w=
 github.com/chzyer/logex v1.1.10/go.mod h1:+Ywpsq7O8HXn0nuIou7OrIPyXbp3wmkHB+jjWRnGsAI=
 github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e/go.mod h1:nSuG5e5PlCu98SY8svDHJxuZscDgtXS6KTTbou5AhLI=

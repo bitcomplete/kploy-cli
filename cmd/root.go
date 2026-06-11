@@ -24,6 +24,7 @@ func Root() *cobra.Command {
 	root.AddCommand(imageCommand())
 	root.AddCommand(orgCommand())
 	root.AddCommand(repoCommand())
+	root.AddCommand(validateConfigCommand())
 	root.AddCommand(versionCommand())
 
 	return root
