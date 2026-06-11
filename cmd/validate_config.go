@@ -16,7 +16,8 @@ func validateConfigCommand() *cobra.Command {
 		Use:   "validate-config",
 		Short: "Validate a local kploy.yaml file",
 		Long: `Parse and validate a kploy.yaml file, then print the hostnames
-it would render for prod, development, and an example PR env.`,
+it would render for production and development — plus, if preview
+environments are enabled, an example PR preview env.`,
 		RunE: func(c *cobra.Command, args []string) error {
 			data, err := os.ReadFile(file)
 			if err != nil {
@@ -36,7 +37,6 @@ it would render for prod, development, and an example PR env.`,
 			}{
 				{"prod", 0},
 				{"development", 0},
-				{"pr-1", 1},
 			}
 			hostnames := make(map[string]string, len(envs))
 			for _, env := range envs {
@@ -84,7 +84,7 @@ it would render for prod, development, and an example PR env.`,
 
 			if len(ingress) > 0 {
 				fmt.Fprintln(out)
-				fmt.Fprintln(out, "Preview ingress (for PR #1):")
+				fmt.Fprintln(out, "Example preview env (PR #1):")
 				tw2 := tabwriter.NewWriter(out, 0, 0, 2, ' ', 0)
 				fmt.Fprintln(tw2, "HOSTNAME\tSERVICE\tPORT")
 				for _, ing := range ingress {
