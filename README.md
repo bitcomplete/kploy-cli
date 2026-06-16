@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> **This repository has moved.** CLI source now lives at [`bitcomplete/kploy/cli`](https://github.com/bitcomplete/kploy/tree/main/cli). Releases (v0.1.1 onward) publish to [`bitcomplete/homebrew-tap`](https://github.com/bitcomplete/homebrew-tap/releases). `brew install bitcomplete/tap/kploy` continues to work; this repo is archived for history.
+
 # kploy CLI
 
 Command-line client for [Kploy](https://github.com/bitcomplete/kploy).
