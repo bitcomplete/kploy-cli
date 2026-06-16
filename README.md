@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> **This repository has moved.** CLI source now lives at [`bitcomplete/kploy/cli`](https://github.com/bitcomplete/kploy/tree/main/cli). Releases (v0.1.1 onward) publish to [`bitcomplete/homebrew-tap`](https://github.com/bitcomplete/homebrew-tap/releases). `brew install bitcomplete/tap/kploy` continues to work; this repo is archived for history.
+
 # kploy CLI
 
 Command-line client for [Kploy](https://github.com/bitcomplete/kploy).
@@ -22,6 +25,17 @@ Runs GitHub Device Flow: prints a code, opens the verification URL, polls until 
 kploy auth whoami    # show the orgs your token can see
 kploy auth logout    # forget the saved token
 ```
+
+## Validating `kploy.yaml`
+
+If your project has a `kploy.yaml` at its repo root, you can sanity-check it locally before pushing:
+
+```sh
+kploy validate-config              # defaults to ./kploy.yaml
+kploy validate-config -f my.yaml   # different path
+```
+
+Prints rendered hostnames for production and development on success — plus an example preview env if preview environments are enabled. Validation errors include the field path. Does not require authentication.
 
 ## Common workflows
 

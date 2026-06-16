@@ -5,6 +5,7 @@ go 1.24.3
 tool github.com/oapi-codegen/oapi-codegen/v2/cmd/oapi-codegen
 
 require (
+	github.com/bitcomplete/kployconfig v0.1.1
 	github.com/oapi-codegen/runtime v1.4.0
 	github.com/spf13/cobra v1.10.1
 	go.yaml.in/yaml/v3 v3.0.4
